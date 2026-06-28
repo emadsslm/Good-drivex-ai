@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import ZAI from "z-ai-web-dev-sdk";
 
 export const runtime = "nodejs";
@@ -115,13 +115,16 @@ export async function POST(req: NextRequest) {
       thinking: { type: "disabled" },
     });
 
-    const reply = completion.choices[0]?.message?.content?.trim() || "";
+    const reply = completion.choices?.message?.content?.trim() || "";
 
     return NextResponse.json({ ok: true, reply });
   } catch (err: any) {
     return NextResponse.json(
-      { ok: false, error: err?.message || "فشل الاتصال بالمساعد الذكي." },
+      { ok: false, error: err?.message || "ظپط´ظ„ ط§ظ„ط§طھطµط§ظ„ ط¨ط§ظ„ظ…ط³ط§ط¹ط¯ ط§ظ„ط°ظƒظٹ." },
       { status: 500 }
     );
   }
 }
+
+
+
