@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 import { ServiceWorkerRegister } from "@/components/drivex/ServiceWorkerRegister";
 
 const geistSans = Geist({
@@ -15,9 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DriveX AI V5 â€“ Universal AI Companion",
-  description:
-    "DriveX AI V5 â€” your intelligent AI companion. Continuous voice conversation, any topic: education, programming, design, creative writing, business and more. Plus smart driving assistance.",
+  title: "DriveX AI V5 – Universal AI Companion",
+  description: "DriveX AI V5 — your intelligent AI companion. Continuous voice conversation, any topic: education, programming, design, creative writing, business and more. Plus smart driving assistance.",
   keywords: [
     "DriveX AI",
     "AI companion",
@@ -30,32 +28,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "DriveX AI" }],
   manifest: "/manifest.json",
-  applicationName: "DriveX AI",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-    title: "DriveX AI",
-  },
-  icons: {
-    icon: [
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-  },
-  formatDetection: {
-    telephone: false,
-  },
+  applicationName: "DriveX AI"
 };
 
 export const viewport: Viewport = {
-  themeColor: "#00aaff",
+  themeColor: "#05070d",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -64,12 +45,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
-      >
+    <html lang="ar" dir="rtl" className="dark">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <Toaster />
         <ServiceWorkerRegister />
       </body>
     </html>
